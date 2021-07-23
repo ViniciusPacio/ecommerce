@@ -44,14 +44,6 @@ export default function Header(){
             </div>   
         </div>
         <div id="line"></div>
-        <ul className="category">
-            <li><a href="#">início</a></li>
-            <li><a href="#">Smartphones</a></li>
-            <li><a href="#">Computadores</a></li>
-            <li><a href="#">Notebooks</a></li>
-            <li><a href="#">Câmeras</a></li>
-      </ul> 
-        <p id="lastLine"><span></span></p>
         </>
     )
 }

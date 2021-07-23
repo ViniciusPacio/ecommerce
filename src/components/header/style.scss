@@ -1,0 +1,141 @@
+.infos{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;
+    gap: .2rem;
+    padding: 1rem 3rem;
+    background:#1E1F29;
+    color: white;
+    img{
+        width: 20px;
+        height: 20px;
+    }
+
+    #imgEmail{
+        margin-left: 2rem;
+    }
+
+    #imgLocation{
+        margin-left: 2rem;
+    }
+
+    #separator{
+        margin-right: 35rem;
+
+    }
+
+    #imgMoney{
+        margin-right: 2rem;
+    }
+
+    #imgUser{
+        margin-right: 2rem;
+    }
+}
+
+.header{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    display:flex;
+    justify-content: center;
+    padding: 2rem 0;
+    background:#15161D;
+    color: white;
+
+    img{
+        width:30px;
+        height:30px;
+    }
+
+    input{
+        border: 1px solid black;
+        border-radius: 30px 0px 0px 30px;
+        padding: 0 1rem;
+        margin-left: 5rem;
+        width:20rem;
+        height: 3rem;
+
+        &:focus{
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    button{
+        padding: 1rem 2rem;
+        border: 1px solid black;
+        border-radius:0px 30px 30px 0px;
+        background:red;
+        color: white;
+        height: 3rem;
+
+    }
+
+    .favorites{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        margin-left: 10rem;
+    }
+
+    .shopCart{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        margin-left: 3rem;
+    }
+    
+}
+
+#line{
+    border: 2px solid #D10024;
+    width:100vw;
+}
+
+.category{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 2rem 5rem;
+    margin-bottom:0;
+    display:flex;
+    gap: 2rem;
+    list-style: none;
+
+    a{
+        position: relative;
+        color: black;
+        font-size:20px;
+        text-decoration: none;
+
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height:3px;
+            width: 0%;
+            background:#D10024;
+            transition: all 0.4s ease;
+        }
+
+        &:hover{
+            color:#D10024;
+        }
+
+        &:hover::before{
+            width: 100%;
+        }
+    }
+    
+}
+
+#lastLine{
+    margin-top: 1rem;
+    border : 1px solid #ddd;
+    width:100%;
+}

@@ -1,8 +1,8 @@
 {
-    "produtos":[{
-        
+    "produtos":[{        
         "id":1,
         "name":"pc",
-        "price":1000        
+        "price":1000 ,
+        "typeProduct":"Computer"      
         }]
 }

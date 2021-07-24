@@ -14,17 +14,10 @@ export default function Home(){
     const camera='Câmera'
     const notebook='Notebook'
 
-    const [product, setProduct]=useState([]); //utilizar esse estado como contexto, dessa forma carrega o json globalmente. E possivel fazer um .map nos buttons e listar usando os tipos de produto no json (smartphones, computadores, etc). passa o tipo de produto como props para o "card". De dentro do card, importa o contexto(product) 
+     //utilizar esse estado como contexto, dessa forma carrega o json globalmente. E possivel fazer um .map nos buttons e listar usando os tipos de produto no json (smartphones, computadores, etc). passa o tipo de produto como props para o "card". De dentro do card, importa o contexto(product) 
     const [type, setType]=useState('Smartphone');
 
-    async function fetchProduct(){
-        const res=await axios.get('https://my-json-server.typicode.com/viniciusPacio/ecommerce/produtos',)   
-        setProduct(res.data);
-    }
 
-    useEffect(() =>{
-        fetchProduct();        
-    },[])
 
     function handleType(props:string){                
         setType(props)   
@@ -32,18 +25,16 @@ export default function Home(){
 
     return(
         <>
-        {console.log(product)}
             <Header />
             <ul className="category">
                 <button onClick={()=>handleType(smartphone)}>{smartphone}</button>
-                <button onClick={()=>handleType(computador)}>{computador}</button>
                 <button onClick={()=>handleType(notebook)}>{notebook}</button>
                 <button onClick={()=>handleType(camera)}>{camera}</button>
             </ul> 
             <p id="lastLine"><span></span></p>
 
             <div className="products">
-                <Card  nameProduct='teste' priceProduct={10} ratingProduct={2} typeProduct={type} />
+                <Card TypeProduct={type} />
             </div>
         </>
     )

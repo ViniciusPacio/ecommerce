@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Header from '../components/header/Index'
 import Card from '../components/card/Index'
@@ -9,10 +9,21 @@ import { useState, useEffect } from 'react';
 
 import { getProducts } from 'src/service/api';
 import axios from 'axios';
+import { AuthContext } from 'src/context/Products';
 
+
+type Product={
+    id: number;
+    name:string;
+    image:string;
+    price:number;
+}
 
 export default function Home(){
-
+    
+    const [products,setProducts]=useState<any[]>([])
+    
+    
     const computador='Computador'
     const smartphone='Smartphone'
     const camera='Câmera'
@@ -20,17 +31,35 @@ export default function Home(){
 
     const [type, setType]=useState('Smartphone');
 
- 
-
-
-    function handleType(props:string){                
-        setType(props)   
+    async function fetchProduct(){
+        await axios.get('https://my-json-server.typicode.com/viniciuspacio/ecommerce/db').then(res=>{
+            try{
+            setProducts(res.data)
+            }catch (e){
+                console.log(e);
+                
+            }
+        })   
+     
     }
+
+    useEffect(() =>{
+        fetchProduct();  
+    },[])
 
     return(
         <>
             <Header />
-            <Category title='Smartphones'/>
+            
+            <h1>Notebooks</h1>
+            
+            {Object.keys(products).map(prod=>{
+                console.log(prod);                
+            })}
+            {console.log(products[0].cameras[0].name)
+            }
+
+            
 
         </>
     )

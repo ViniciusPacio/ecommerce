@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from 'src/context/Products';
 
 import './category.scss'
 
@@ -11,20 +13,11 @@ type CategoryProducts = {
 
 export default function Category(props: CategoryProducts) {
 
-    const [product, setProduct]=useState<any>([]);
-
-    async function fetchProduct(){
-        const res=await axios.get('https://my-json-server.typicode.com/viniciuspacio/ecommerce/db')   
-        setProduct(res.data);   
-    }
-
-    useEffect(() =>{
-        fetchProduct();  
-    },[])
+    const {products,setProduct}=useContext<any>(AuthContext)
     
     return (
         <>
-            {/* {console.log(products)} */}
+            {console.log(products)}
         </>
     )
 }

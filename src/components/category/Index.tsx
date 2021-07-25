@@ -1,18 +1,30 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 import './category.scss'
 
 type CategoryProducts = {
-    name: string;
+    title:string;
 }
 
+
+
 export default function Category(props: CategoryProducts) {
+
+    const [product, setProduct]=useState<any>([]);
+
+    async function fetchProduct(){
+        const res=await axios.get('https://my-json-server.typicode.com/viniciuspacio/ecommerce/db')   
+        setProduct(res.data);   
+    }
+
+    useEffect(() =>{
+        fetchProduct();  
+    },[])
+    
     return (
         <>
-            <div id="category">
-                <p>{props.name}</p>
-                <span id="teste"></span>
-            </div>
+            {/* {console.log(products)} */}
         </>
     )
 }

@@ -9,6 +9,13 @@
     padding: 1rem 3rem;
     background:#1E1F29;
     color: white;
+
+    p{
+        &:hover{
+            color: #D10024;
+            cursor: pointer;
+        }
+    }
     img{
         width: 20px;
         height: 20px;
@@ -22,7 +29,7 @@
         margin-left: 2rem;
     }
 
-    #separator{
+    #separatorHeader{
         margin-right: 35rem;
 
     }
@@ -45,6 +52,10 @@
     padding: 2rem 0;
     background:#15161D;
     color: white;
+
+    h1{
+        font-weight: 700;
+    }
 
     img{
         width:30px;
@@ -93,5 +104,4 @@
 
 #line{
     border: 2px solid #D10024;
-    width:100vw;
 }

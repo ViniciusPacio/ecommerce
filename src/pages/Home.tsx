@@ -1,66 +1,73 @@
-import React, { useContext } from 'react';
 
 import Header from '../components/header/Index'
-import Card from '../components/card/Index'
-import Category from '../components/category/Index'
+import Footer from '../components/footer/Index'
+
+import iconEmail from '../images/email.svg'
+
+import { useState, useEffect, ChangeEvent } from 'react';
+
+import api from '../service/api'
 
 
-import { useState, useEffect } from 'react';
-
-import { getProducts } from 'src/service/api';
-import axios from 'axios';
-import { AuthContext } from 'src/context/Products';
 
 
-type Product={
+type Product = {
     id: number;
-    name:string;
-    image:string;
-    price:number;
+    name: string;
+    image: string;
+    price: number;
 }
 
-export default function Home(){
-    
-    const [products,setProducts]=useState<any[]>([])
-    
-    
-    const computador='Computador'
-    const smartphone='Smartphone'
-    const camera='Câmera'
-    const notebook='Notebook'
+export default function Home() {
 
-    const [type, setType]=useState('Smartphone');
+    const [products, setProducts] = useState<Product[]>([])
+    const [email,setEmail] = useState('')
 
-    async function fetchProduct(){
-        await axios.get('https://my-json-server.typicode.com/viniciuspacio/ecommerce/db').then(res=>{
-            try{
+    useEffect(() => {
+        api.get('').then(res => {
             setProducts(res.data)
-            }catch (e){
-                console.log(e);
-                
-            }
-        })   
-     
+        })
+    }, [])
+
+    function registerEmail(){
+        localStorage.setItem('Email',JSON.stringify(email))
     }
 
-    useEffect(() =>{
-        fetchProduct();  
-    },[])
+    function registerProduct(id:number){
+        localStorage.setItem('Product', JSON.stringify(products[id]))
+    }
 
-    return(
+    const onChange=(event:ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.currentTarget.value);
+
+    }
+
+    return (
         <>
             <Header />
-            
-            <h1>Notebooks</h1>
-            
-            {Object.keys(products).map(prod=>{
-                console.log(prod);                
-            })}
-            {console.log(products)
-            }
+            <h1 id="category">Notebooks</h1>
+            <div className="content">
+                {products.map(prod => (
+                    <div key={prod.id} className="card">
+                        <img src={prod.image} alt="imagem do produto" />
+                        <p id="productName">{prod.name}</p>
+                        <p id="productPrice"> ${prod.price},00</p>
+                        <span></span>
+                        <button type="button" onClick={()=>registerProduct(prod.id-1)}>Comprar</button>
+                    </div>
+                ))}
+            </div>
 
-            
+            <p id="separator"></p>
 
+            <div className="newsletter">
+                <h1>Cadastre seu email para receber novidades</h1>
+                <div className="register">
+                    <input type="text" placeholder="Escreva seu email" value={email} onChange={onChange} />
+                    <button type="button" onClick={registerEmail}> <img src={iconEmail} alt="icone de email"/> Cadastrar</button>
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }

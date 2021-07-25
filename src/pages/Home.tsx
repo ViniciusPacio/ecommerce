@@ -56,7 +56,7 @@ export default function Home(){
             {Object.keys(products).map(prod=>{
                 console.log(prod);                
             })}
-            {console.log(products[0].cameras[0].name)
+            {console.log(products)
             }
 
             

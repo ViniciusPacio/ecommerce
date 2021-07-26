@@ -1,0 +1,112 @@
+
+#separator2{
+    margin-top: 3rem;
+    border: 2px solid #D10024;
+}
+
+.footer{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content:space-around;
+    background-color: #15161D;
+    color: white;
+    width:100%;
+    height: 25rem;
+
+}
+
+.about{
+    font-weight: 400;
+    font-size: 14px;
+    list-style: none;
+    width:18rem;
+    margin-left: 8rem;
+    img{
+        width:1rem;
+    }
+
+    li{
+        padding-top: 2rem;
+        color: #B9BABC;
+        &:hover{
+            color: #D10024;
+            cursor: pointer;
+        }
+    }
+
+    #about{
+        text-align: justify;
+        &:hover{
+            color:#B9BABC;
+            cursor: auto;
+        }
+    }
+
+    #titleAbout{
+        font-size:18px;
+        font-weight: 700;
+        color: white;
+
+        &:hover{
+            color:white;
+            cursor: auto;
+        }
+    }
+}
+
+.information{
+    font-size: 14px;
+    font-weight: 400;
+    width:20rem;
+    list-style: none;
+
+    li{
+        padding-top: 2rem;
+        color: #B9BABC;
+        &:hover{
+            color: #D10024;
+            cursor: pointer;
+        }
+    }
+
+    #titleInformation{
+        font-size:18px;
+        font-weight: 700;
+        color: white;
+
+        &:hover{
+            color:white;
+            cursor: auto;
+        }
+    }
+}
+
+.services{
+
+    font-size: 14px;
+    font-weight: 400;
+    width:20rem;
+    list-style: none;
+
+    li{
+        color: #B9BABC;
+        padding-top: 2rem;
+
+        &:hover{
+            color: #D10024;
+            cursor: pointer;
+        }
+    }
+
+    #titleService{
+        font-size:18px;
+        font-weight: 700;
+        color: white;
+        &:hover{
+            color:white;
+            cursor: auto;
+        }
+    }
+
+}
+

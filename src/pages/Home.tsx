@@ -24,7 +24,7 @@ export default function Home() {
     const [email,setEmail] = useState('')
 
     useEffect(() => {
-        api.get('').then(res => {
+        api.get('https://my-json-server.typicode.com/viniciuspacio/ecommerce/notebooks').then(res => {
             setProducts(res.data)
         })
     }, [])
